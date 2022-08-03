@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    gap: 10px;
+}
+
+
+
+
+
+.onBtn {
+    background-color: darkgreen;
+    color: white;
+}
+
+.offBtn {
+    background-color: red;
+    color: white;
+}
+
+.indicator {
+
+    outline: none;
+    border-radius: 50%;
+}
+
