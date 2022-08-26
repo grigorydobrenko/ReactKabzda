@@ -11,12 +11,12 @@ export default {
     * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
     * to learn how to generate automatic titles
     */
-    title: 'SelfControlledAccordion',
+    title: 'components/SelfControlledAccordion',
     component: SelfControlledAccordion,
 } as ComponentMeta<typeof SelfControlledAccordion>;
 
 
 export const RatingChanging: ComponentStory<typeof SelfControlledAccordion> = () => {
-    return <SelfControlledAccordion titleValue={'Menu'} />;
+    return <SelfControlledAccordion titleValue={'Menu'}/>;
 }
 

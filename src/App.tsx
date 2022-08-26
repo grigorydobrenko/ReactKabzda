@@ -31,7 +31,7 @@ function App(props: any) {
             Article 2
 
             <Rating value={value} onClick={setValue}/>
-            <SelfControlledRating/>
+            <SelfControlledRating onChange={setValue}/>
 
             <OnOff setSwitchOnOff={setSwitchOnOff} switchOnOff={switchOnOff}/>
             <SelfControlledOnOff onChange={setSwitchOnOff}/> {switchOnOff.toString()}

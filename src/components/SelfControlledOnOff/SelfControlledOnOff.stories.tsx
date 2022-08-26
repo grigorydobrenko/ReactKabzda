@@ -1,6 +1,6 @@
 // Button.stories.ts|tsx
 
-import React, {} from 'react';
+import React from 'react';
 
 import {ComponentStory, ComponentMeta} from '@storybook/react';
 
@@ -12,7 +12,7 @@ export default {
     * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
     * to learn how to generate automatic titles
     */
-    title: 'SelfControlledAccordion',
+    title: 'components/SelfControlledOnOff',
     component: SelfControlledOnOff,
 } as ComponentMeta<typeof SelfControlledOnOff>;
 
@@ -21,10 +21,10 @@ const callback = action('on or off clicked')
 
 
 export const onMode: ComponentStory<typeof SelfControlledOnOff> = () => {
-    return <SelfControlledOnOff onChange={callback} defaultOn={true} />;
+    return <SelfControlledOnOff onChange={callback} defaultOn={true}/>;
 }
 export const offMode: ComponentStory<typeof SelfControlledOnOff> = () => {
-    return <SelfControlledOnOff onChange={callback} defaultOn={false} />;
+    return <SelfControlledOnOff onChange={callback} defaultOn={false}/>;
 }
 export const DefaultInputValue: ComponentStory<typeof SelfControlledOnOff> = () => {
     return <input defaultValue={'yo'}/>;
