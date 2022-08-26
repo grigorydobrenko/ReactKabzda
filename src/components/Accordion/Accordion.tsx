@@ -1,4 +1,5 @@
 import React from "react";
+import {UsersType} from "../../App";
 
 type AccordionPropsType = {
     /**
@@ -15,6 +16,11 @@ type AccordionPropsType = {
      * choose color
      */
     color?: string
+    /**
+     * gaven array of users
+     */
+    users?: UsersType
+    onClick?: (t: string) => void
 }
 
 function Accordion(props: AccordionPropsType) {
@@ -25,7 +31,7 @@ function Accordion(props: AccordionPropsType) {
         <div>
             <AccordionTitle title={props.titleValue} setCollapsed={props.setCollapsed} collapsed={props.collapsed}
                             color={props.color}/>
-            {!props.collapsed && <AccordionBody/>}
+            {!props.collapsed && <AccordionBody users={props.users} onClick={props.onClick}/>}
         </div>
     )
 }
@@ -45,16 +51,19 @@ function AccordionTitle(props: AccordionTitlePropsType) {
     );
 }
 
-function AccordionBody(props: any) {
+type AccordionBodyType = {
+    users?: UsersType
+    onClick?: (t: string) => void
+}
+
+function AccordionBody(props: AccordionBodyType) {
     console.log('AccordionBody rendering')
-    return (
-        <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JS</li>
-            <li>React</li>
-        </ul>
-    );
+    return (<ul>
+        {props.users?.map((t, i) => <li onClick={() => props.onClick?.(t.name)} key={i}>{t.name}</li>)}
+
+    </ul>)
+
+
 }
 
 export default Accordion;

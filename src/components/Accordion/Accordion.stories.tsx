@@ -23,21 +23,36 @@ export default {
 } as ComponentMeta<typeof Accordion>;
 
 const callback = action('accordion mode change event fired')
+const onClickCallback = action('item was clicked')
 
 const Template: ComponentStory<typeof Accordion> = (args) => <Accordion {...args} />;
 
-export const menuCollapsedMode = Template.bind({})
-
 const callbackProps = {
-    setCollapsed: callback
+    setCollapsed: callback,
+    onClick: onClickCallback
 }
 
-
+export const menuCollapsedMode = Template.bind({})
 menuCollapsedMode.args = {
     titleValue: 'Menu',
     collapsed: true,
     ...callbackProps
 }
+
+
+export type UsersType = Array<UserType> | undefined
+type UserType = {
+    id: any,
+    name: string
+}
+
+export const users: UsersType = [
+    {id: 1, name: 'Vanya'},
+    {id: 2, name: 'Lesha'},
+    {id: 3, name: 'Sergei'},
+    {id: 4, name: 'Vadim'}
+]
+
 
 export const usersUnCollapsedMode = Template.bind({})
 usersUnCollapsedMode.args = {
@@ -47,30 +62,22 @@ usersUnCollapsedMode.args = {
 }
 
 
-// export const menuCollapsedMode: ComponentStory<typeof Accordion> = () => <Accordion  titleValue={'Menu'}
-//                                                                                      collapsed={true}
-//                                                                                      setCollapsed={callback}/>;
-// export const usersUnCollapsedMode: ComponentStory<typeof Accordion> = () => <Accordion titleValue={'Users'}
-//                                                                           collapsed={false}
-//                                                                           setCollapsed={callback}/>;
-
-export const ModeChanging: ComponentStory<typeof Accordion> = () => {
+export const ModeChanging: ComponentStory<typeof Accordion> = (args) => {
     const [collapse, setCollapse] = useState<boolean>(true);
-    return <Accordion titleValue={'ModeChanging'}
+    return <Accordion {...args}
                       collapsed={collapse}
                       setCollapsed={setCollapse}
-                      color={'green'}
+
     />;
 }
 
-// export const ModeChanging: ComponentStory<typeof Accordion> = (args) => {
-//     const [collapse, setCollapse] = useState<boolean>(true);
-//     return <Accordion {...args} collapsed={collapse} setCollapsed={setCollapse}/>;
-// }
 
 ModeChanging.args = {
     titleValue: 'ModeChanging',
-    color: 'green'
+    color: 'green',
+    users: users,
+    onClick: onClickCallback
+
 }
 
 
