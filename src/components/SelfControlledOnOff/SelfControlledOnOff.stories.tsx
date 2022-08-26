@@ -26,7 +26,4 @@ export const onMode: ComponentStory<typeof SelfControlledOnOff> = () => {
 export const offMode: ComponentStory<typeof SelfControlledOnOff> = () => {
     return <SelfControlledOnOff onChange={callback} defaultOn={false}/>;
 }
-export const DefaultInputValue: ComponentStory<typeof SelfControlledOnOff> = () => {
-    return <input defaultValue={'yo'}/>;
-}
 
