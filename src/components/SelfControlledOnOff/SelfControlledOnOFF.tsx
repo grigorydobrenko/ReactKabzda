@@ -4,12 +4,13 @@ import s from './SelfControlledOnOff.module.css'
 
 type OnOffPropsType = {
     onChange: (val: boolean) => void
+    defaultOn?: boolean
 }
 
 const SelfControlledOnOff = (props: OnOffPropsType) => {
 
 
-    const [on, setON] = useState<boolean>(false)
+    const [on, setON] = useState<boolean>(props.defaultOn ? props.defaultOn : false)
 
 
     const onClassName = on ? s.onBtn : ''
