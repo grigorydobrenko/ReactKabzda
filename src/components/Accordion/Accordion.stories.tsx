@@ -29,25 +29,19 @@ const Template: ComponentStory<typeof Accordion> = (args) => <Accordion {...args
 export const menuCollapsedMode = Template.bind({})
 
 const callbackProps = {
-
     setCollapsed: callback
 }
 
 
 menuCollapsedMode.args = {
-
     titleValue: 'Menu',
-
     collapsed: true,
-
-
     ...callbackProps
 }
 
 export const usersUnCollapsedMode = Template.bind({})
 usersUnCollapsedMode.args = {
     titleValue: 'Users',
-
     collapsed: false,
     ...callbackProps
 }
@@ -75,7 +69,7 @@ export const ModeChanging: ComponentStory<typeof Accordion> = () => {
 // }
 
 ModeChanging.args = {
-    titleValue:'ModeChanging',
+    titleValue: 'ModeChanging',
     color: 'green'
 }
 
