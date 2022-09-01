@@ -12,7 +12,7 @@ type SelfControlledRatingPropsType = {
 
 
 export function SelfControlledRating(props: SelfControlledRatingPropsType) {
-    console.log('Rating rendering')
+    console.log('Select rendering')
 
     const [value, setValue] = useState<RatingValueType>(props.defaultValue? props.defaultValue : 1)
 

@@ -4,7 +4,7 @@ import React, {useState} from 'react';
 
 import {ComponentStory, ComponentMeta} from '@storybook/react';
 
-import Accordion from "./Accordion";
+import Accordion, {UsersType} from "./Accordion";
 import {action} from "@storybook/addon-actions";
 
 
@@ -40,13 +40,9 @@ menuCollapsedMode.args = {
 }
 
 
-export type UsersType = Array<UserType> | undefined
-type UserType = {
-    id: any,
-    name: string
-}
 
-export const users: UsersType = [
+
+const users: UsersType = [
     {id: 1, name: 'Vanya'},
     {id: 2, name: 'Lesha'},
     {id: 3, name: 'Sergei'},

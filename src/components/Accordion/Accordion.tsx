@@ -1,5 +1,12 @@
 import React from "react";
-import {UsersType} from "../../App";
+
+
+
+export type UsersType = Array<UserType> | undefined
+export type UserType = {
+    id: any,
+    name: string
+}
 
 type AccordionPropsType = {
     /**
