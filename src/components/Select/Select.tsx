@@ -22,8 +22,8 @@ export function Select(props: SelectPropsValue) {
     return (
         <div className={s.container}>
             <div onClick={divOnClickHandler} className={s.title}>{props.value}</div>
-            {edit ? <ul>{props.users?.map(u => <li key={u.id} onClick={liOnClickHandler}
-                                                   className={s.item}>{u.name}</li>)}</ul> : null}
+            {edit && <ul>{props.users?.map(u => <li key={u.id} onClick={liOnClickHandler}
+                                                   className={s.item}>{u.name}</li>)}</ul>}
         </div>
     )
 }
