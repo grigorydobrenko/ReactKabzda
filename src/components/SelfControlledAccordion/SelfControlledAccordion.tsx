@@ -4,7 +4,7 @@ type SelfControlledAccordionPropsType = {
     titleValue: string
 }
 
-function SelfControlledAccordion(props: SelfControlledAccordionPropsType) {
+function SelfControlledAccordionPresentational(props: SelfControlledAccordionPropsType) {
     const [collapsed, setCollapsed] = useState<boolean>(false)
 
     const toggleAccordionBody = () => {
@@ -19,6 +19,8 @@ function SelfControlledAccordion(props: SelfControlledAccordionPropsType) {
     )
 }
 
+
+const SelfControlledAccordion = React.memo(SelfControlledAccordionPresentational)
 
 type AccordionTitlePropsType = {
     title: string

@@ -30,7 +30,7 @@ type AccordionPropsType = {
     onClick?: (t: string) => void
 }
 
-function Accordion(props: AccordionPropsType) {
+function AccordionPresentational(props: AccordionPropsType) {
     debugger
     console.log('Accordion rendering')
 
@@ -42,6 +42,11 @@ function Accordion(props: AccordionPropsType) {
         </div>
     )
 }
+
+
+const Accordion = React.memo(AccordionPresentational)
+
+
 
 type AccordionTitlePropsType = {
     title: string

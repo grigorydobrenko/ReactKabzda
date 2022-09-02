@@ -8,7 +8,10 @@ type RatingPropsType = {
 
 export type RatingValueType = 0 | 1 | 2 | 3 | 4 | 5
 
-export function Rating(props: RatingPropsType) {
+
+
+
+function RatingPresentational(props: RatingPropsType) {
     console.log('Select rendering')
     return (
         <div>
@@ -20,6 +23,8 @@ export function Rating(props: RatingPropsType) {
         </div>
     )
 }
+
+export const Rating = React.memo(RatingPresentational)
 
 
 type StarPropsType = {

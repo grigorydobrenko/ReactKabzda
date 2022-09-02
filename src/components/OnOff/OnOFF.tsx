@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import s from './OnOff.module.css'
 
 
@@ -7,7 +7,8 @@ type OnOffPropsType = {
     switchOnOff: boolean
 }
 
-const OnOff = (props: OnOffPropsType) => {
+
+const OnOffPresentational = (props: OnOffPropsType) => {
 
 
     const onClassName = props.switchOnOff ? s.onBtn : ''
@@ -29,5 +30,8 @@ const OnOff = (props: OnOffPropsType) => {
         </div>
     );
 };
+
+
+const OnOff = React.memo(OnOffPresentational)
 
 export default OnOff;

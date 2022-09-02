@@ -7,7 +7,7 @@ type OnOffPropsType = {
     defaultOn?: boolean
 }
 
-const SelfControlledOnOff = (props: OnOffPropsType) => {
+const SelfControlledOnOffPresentational = (props: OnOffPropsType) => {
 
 
     const [on, setON] = useState<boolean>(props.defaultOn ? props.defaultOn : false)
@@ -37,5 +37,8 @@ const SelfControlledOnOff = (props: OnOffPropsType) => {
         </div>
     );
 };
+
+
+const SelfControlledOnOff = React.memo(SelfControlledOnOffPresentational)
 
 export default SelfControlledOnOff;

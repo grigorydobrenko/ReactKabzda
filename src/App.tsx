@@ -8,8 +8,6 @@ import SelfControlledOnOff from "./components/SelfControlledOnOff/SelfControlled
 import SelfControlledAccordion from "./components/SelfControlledAccordion/SelfControlledAccordion";
 
 
-
-
 //function declaration
 function App(props: any) {
     // полезное что-то
@@ -17,12 +15,9 @@ function App(props: any) {
     console.log('App rendering')
 
 
-
     const [value, setValue] = useState<RatingValueType>(4)
     const [collapsed, setCollapsed] = useState<boolean>(true)
     const [switchOnOff, setSwitchOnOff] = useState<boolean>(false)
-
-
 
 
     return (
@@ -31,7 +26,7 @@ function App(props: any) {
             <PageTitle title={"My friends"}/>
             Article 1
 
-            <Accordion titleValue={"Menu"} collapsed={collapsed} setCollapsed={setCollapsed} />
+            <Accordion titleValue={"Menu"} collapsed={collapsed} setCollapsed={setCollapsed}/>
             <SelfControlledAccordion titleValue={"Users"}/>
 
             Article 2
