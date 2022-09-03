@@ -37,7 +37,7 @@ export const CustomSelect: ComponentStory<typeof Select> = (args) => {
 
 CustomSelect.args = {
 
-    users: users,
+    items: users,
 
 
 }

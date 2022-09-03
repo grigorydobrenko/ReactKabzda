@@ -6,15 +6,16 @@ import s from './Select.module.css'
 type SelectPropsValue = {
     value: string,
     onChange: (value: string) => void,
-    users: Array<UserType>
+    items: Array<UserType>
 }
 
 
 export function Select(props: SelectPropsValue) {
+    console.log('Go in select')
     const [edit, setEdit] = useState(false)
     const [hovered, setHovered] = useState(props.value)
 
-    const hoveredItem = props.users?.find(i => i.name === hovered)
+    const hoveredItem = props.items?.find(i => i.name === hovered)
 
     const liOnClickHandler = (e: MouseEvent<HTMLLIElement>) => {
         props.onChange(e.currentTarget.innerText)
@@ -31,10 +32,10 @@ export function Select(props: SelectPropsValue) {
     const onKeyUp = (e: KeyboardEvent<HTMLDivElement>) => {
         if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
 
-            for (let i = 0; i < props.users.length; i++) {
+            for (let i = 0; i < props.items.length; i++) {
 
-                if (props.users[i].name === hovered) {
-                    const pretendentElement = e.key === 'ArrowDown' ? props.users[i + 1] : props.users[i - 1]
+                if (props.items[i].name === hovered) {
+                    const pretendentElement = e.key === 'ArrowDown' ? props.items[i + 1] : props.items[i - 1]
                     if (pretendentElement) {
                         props.onChange(pretendentElement.name)
                         return
@@ -42,7 +43,7 @@ export function Select(props: SelectPropsValue) {
                 }
             }
             if (!props.value) {
-                props.onChange(props.users[0].name)
+                props.onChange(props.items[0].name)
             }
         }
 
@@ -55,12 +56,14 @@ export function Select(props: SelectPropsValue) {
     return (
         <div className={s.container} onKeyUp={onKeyUp} tabIndex={0}>
             <div onClick={divOnClickHandler} className={s.title}>{props.value}</div>
-            {edit && <ul>{props.users?.map(u => <li
+
+            {edit && <ul>{props.items?.map(u => <li
                 key={u.id}
                 onClick={liOnClickHandler}
                 onMouseEnter={() => setHovered(u.name)}
                 className={s.item + ' ' + (hoveredItem === u ? s.selected : '')}>
                 {u.name}</li>)}</ul>}
+
         </div>
     )
 }
