@@ -4,9 +4,10 @@ import s from './Select.module.css'
 
 
 type SelectPropsValue = {
-    value: string,
-    onChange: (value: string) => void,
+    value: string
+    onChange: (value: string) => void
     items: Array<UserType>
+    addCity?: () => void
 }
 
 
@@ -52,11 +53,14 @@ export function Select(props: SelectPropsValue) {
         }
     }
 
+    const callback = () => {
+        props.addCity && props.addCity()
+    }
 
     return (
         <div className={s.container} onKeyUp={onKeyUp} tabIndex={0}>
             <div onClick={divOnClickHandler} className={s.title}>{props.value}</div>
-
+            {props.addCity && <button onClick={callback}>add City</button>}
             {edit && <ul>{props.items?.map(u => <li
                 key={u.id}
                 onClick={liOnClickHandler}

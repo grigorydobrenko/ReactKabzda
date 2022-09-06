@@ -1,6 +1,6 @@
 // Button.stories.ts|tsx
 
-import React, {useMemo, useState} from 'react';
+import React, {useCallback, useMemo, useState} from 'react';
 
 import {ComponentStory, ComponentMeta} from '@storybook/react';
 
@@ -76,7 +76,7 @@ export const SelectByPopulation: ComponentStory<typeof Select> = (args) => {
 //     items: country,
 // }
 
-export const SelectByLetter: ComponentStory<typeof Select> = (args) => {
+export const SelectWithUseCallback: ComponentStory<typeof Select> = (args) => {
     const [cities, setCities] = useState<Array<CityType>>([{id: 1, name: 'Moscow', country: 'Russia', population: 10},
         {id: 2, name: 'Peter', country: 'Russia', population: 5},
         {id: 3, name: 'Samara', country: 'Russia', population: 1},
@@ -92,30 +92,29 @@ export const SelectByLetter: ComponentStory<typeof Select> = (args) => {
 
     // with empty array of dependencies
     const newCities = useMemo(() => {
-        return cities.filter(c => c.name[0] === 'M')
-    }, []) // cached value
+        return cities.filter(c => c.name[0] === 'M') // should have return
+    }, [cities]) // cached value
 
-    const addCity = () => {
+    // useCallback
+    const addCity = useCallback(() => { // doesn't have return
         const NewCities = [...cities, {
             id: Number(new Date().getTime()),
             name: 'Peter',
             country: 'Russia',
             population: 5
         },]
-        console.log(NewCities[NewCities.length - 1].id)
         setCities(NewCities)
-    }
+    }, [cities]) // cached value
 
     return <>
         <button onClick={() => SetCounter(counter + 1)}>count +1</button>
         {counter}
 
-        <button onClick={addCity}>add City</button>
-
         <SelectContainer {...args}
                          value={value}
                          onChange={setValue}
                          items={newCities}
+                         addCity={addCity}
         />
     </>;
 }
