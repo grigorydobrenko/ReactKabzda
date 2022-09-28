@@ -20,7 +20,10 @@ export default {
 
 const Template: ComponentStory<typeof Clock> = (args) => <Clock {...args} />;
 
-export const Primary = Template.bind({});
-// Primary.args = { backgroundColor: '#ff0', label: 'Button' };
+export const DigitalClockExample = Template.bind({});
+DigitalClockExample.args = { mode: 'digital' };
+
+export const AnalogClockExample = Template.bind({});
+AnalogClockExample.args = { mode: 'analog' };
 
 
